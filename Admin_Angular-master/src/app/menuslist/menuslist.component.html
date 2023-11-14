@@ -1,0 +1,24 @@
+<app-admindashboard></app-admindashboard>
+<div id="content">
+    <h2 class="heading">Menu List - Admin Panel</h2><br>
+    <!-- testing the design with other bootstrap card -->
+    <div class="row">
+      <div *ngFor="let menu of menus" class="col-md-4">
+        <div class="card mb-3" style="max-width: 18rem;">
+          <img class="card-img-top" src="{{menu.image}}" alt="Card image cap" style="max-height: 150px; object-fit: cover;">
+          <div class="card-body">
+            <h4 class="card-title">{{menu.name}}</h4>
+            <h5 class="card-title">₹{{menu.price}}</h5>
+            <h6 class="card-title">{{menu.tag}}</h6>
+            <div class="d-flex justify-content-between">
+              <a routerLink="/editmenu" routerLinkActive="active" (click)="getImageUrl(menu.image)"(click)="getMenuId(menu.foodId)"class="btn btn-primary btn-sm edit-button pr-3 pl-2">Edit</a>
+              <a  class="btn btn-danger btn-sm delete-button"(click)="deleteMenu(menu.foodId)">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- testing ends  -->
+    </div>
+

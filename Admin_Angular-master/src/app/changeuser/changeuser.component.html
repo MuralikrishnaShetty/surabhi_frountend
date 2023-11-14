@@ -1,0 +1,24 @@
+<app-admindashboard></app-admindashboard>
+<div id="content">
+<h2 class="heading">User List - Admin Panel</h2>
+<div class="container">
+    <ul class="list-group">
+      <!-- Example user item, repeat this for each user -->
+      <!-- Repeat the above li block for each user -->
+       <!-- Example user item, repeat this for each user -->
+       <li *ngFor="let user of users" class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>ID:</strong>{{user.id}}<br>
+          <strong>Email:</strong>{{user.email}}<br>
+          <strong>Name:</strong>{{user.firstName}}<br>
+          <strong>LastName:</strong>{{user.lastName}}
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-warning btn-sm" (click)="getUserId(user.id)" routerLink="/edituser" routerLinkActive="active">Edit</button>
+          <button type="button" (click)="deleteUser(user.id)" class="btn btn-danger btn-sm">Delete</button>
+        </div>
+      </li>
+      <!-- Repeat the above li block for each user -->
+    </ul>
+  </div>
+  </div>

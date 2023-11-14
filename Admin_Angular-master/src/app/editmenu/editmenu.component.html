@@ -1,0 +1,25 @@
+<app-admindashboard></app-admindashboard>
+<div id="content">
+    <!-- Default form contact -->
+    <form class="text-center border border-light p-5" action="#!">
+
+        <p class="h4 mb-4">Update Menu</p>
+
+        <!-- Name -->
+        <!-- <input type="text" id="id" class="form-control mb-4" placeholder="User ID"> -->
+
+        <!-- Email -->
+        <!-- your-component.component.html -->
+
+        <input type="text" class="form-control mb-4"[(ngModel)]="menu.name"  name="name" placeholder="Iteam name ">
+        <input type="number" class="form-control mb-4"[(ngModel)]="menu.price"  name="price" placeholder="Price">
+        <input type="text" class="form-control mb-4"[(ngModel)]="imageUrl"  name="image" placeholder="Image url">
+        <input type="text" class="form-control mb-4" [(ngModel)]="menu.tag"  name="tag"placeholder="Tag">
+
+
+        <!-- Send button -->
+        <button class="btn btn-info btn-block" (click)="updateMenu()"type="submit">Update</button>
+
+    </form>
+    <!-- Default form contact -->
+</div>

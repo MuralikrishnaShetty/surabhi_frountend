@@ -1,0 +1,27 @@
+<app-admindashboard></app-admindashboard>
+<div id="content">
+    <!-- Default form contact -->
+    <form class="text-center border border-light p-5" action="#!">
+
+        <p class="h4 mb-4">Update user</p>
+
+        <!-- Name -->
+        <!-- <input type="text" id="id" class="form-control mb-4" placeholder="User ID"> -->
+
+        <!-- Email -->
+        <!-- your-component.component.html -->
+
+        <input type="email" [(ngModel)]="user.email" id="email" name="email" class="form-control mb-4"
+            placeholder="E-mail">
+        <input type="text" [(ngModel)]="user.firstName" id="firstName" name="firstName" class="form-control mb-4"
+            placeholder="First Name">
+        <input type="text" [(ngModel)]="user.lastName" id="lastName" name="lastName" class="form-control mb-4"
+            placeholder="Last Name">
+
+
+        <!-- Send button -->
+        <button class="btn btn-info btn-block" (click)="updateDataInDatabase()" type="submit">Send</button>
+
+    </form>
+    <!-- Default form contact -->
+</div>
