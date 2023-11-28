@@ -7,42 +7,83 @@ import { AdduserComponent } from './adduser/adduser.component';
 import { MenuslistComponent } from './menuslist/menuslist.component';
 import { EditmenuComponent } from './editmenu/editmenu.component';
 import { AddmenuComponent } from './addmenu/addmenu.component';
+import { UsernavbarComponent } from './usernavbar/usernavbar.component';
+import { UsermenuComponent } from './usermenu/usermenu.component';
+import { UserloginComponent } from './userlogin/userlogin.component';
+import { UserregisterComponent } from './userregister/userregister.component';
+import { AuthGuard } from './auth.guard';
+import { AdminAuthGuard } from './adminauth.guard';
+import { SearchedmenuComponent } from './searchedmenu/searchedmenu.component';
+import { UsercartComponent } from './usercart/usercart.component';
 
 const routes: Routes = [
- 
+
+  {
+    path: '',
+    redirectTo: '/menu',
+    pathMatch: 'full'
+  },
   {
     path: 'admin',
-    component: AdmindashboardComponent
+    component: AdmindashboardComponent,
+    canActivate: [AdminAuthGuard]
+    
+
   },
   {
-    path:'userlist',
-    component:ChangeuserComponent
-    
+    path: 'userlist',
+    component: ChangeuserComponent,
+    canActivate: [AdminAuthGuard]
+
   },
   {
-    path:'edituser',
-    component:EdituserComponent
-    
+    path: 'edituser',
+    component: EdituserComponent,
+    canActivate: [AdminAuthGuard]
+
   },
   {
-    path:'adduser',
-    component:AdduserComponent
-    
+    path: 'adduser',
+    component: AdduserComponent,
+    canActivate: [AdminAuthGuard]
   },
   {
-    path:'menus',
-    component:MenuslistComponent
-    
+    path: 'menus',
+    component: MenuslistComponent,
+    canActivate: [AdminAuthGuard]
+
   },
   {
-    path:'editmenu',
-    component:EditmenuComponent
-    
+    path: 'editmenu',
+    component: EditmenuComponent,
+    canActivate: [AdminAuthGuard]
+
   },
   {
-    path:'addmenu',
-    component:AddmenuComponent
-    
+    path: 'addmenu',
+    component: AddmenuComponent,
+    canActivate: [AdminAuthGuard]
+
+  },
+  {
+    path: 'usernavbar',
+    component: UsernavbarComponent
+  },
+  {
+    path: 'menu',
+    component: UsermenuComponent
+  },
+  {
+    path: 'login',
+    component: UserloginComponent
+  },
+  {
+    path:'register',
+    component:UserregisterComponent
+  },
+  {
+    path:'cart',
+    component:UsercartComponent
   }
 
 ];

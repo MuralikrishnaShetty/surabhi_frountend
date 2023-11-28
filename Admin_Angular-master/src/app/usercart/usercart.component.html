@@ -1,0 +1,114 @@
+<app-usernavbar></app-usernavbar>
+<app-emptycart *ngIf="isempty()"></app-emptycart>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div *ngIf="!isempty()" class="container mt-4 ">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <span class="pull-right">(<strong>{{lengthOfTheCart}}</strong>) items</span>
+                        <h5>Items in your cart</h5>
+                    </div>
+                    <!-- items in the cart -->
+                    <div *ngFor="let menu of menus"class="ibox-content">
+                        <div class="table-responsive">
+                            <table class="table shoping-cart-table">
+                                <tbody>
+                                    <tr>
+                                        <!-- image of the product  -->
+                                        <td width="90">
+                                            <div class="cart-product-imitation">
+                                                <img src="{{menu.image}}" alt="product image " width="90px"height="90px">
+                                            </div>
+                                        </td>
+                                        <td class="desc">
+                                            <!-- name of the product  -->
+                                            <h3>
+                                                <a href="#" class="text-navy">
+                                                    {{menu.name}}
+                                                </a>
+                                            </h3>
+                                            <!-- tag of the product  -->
+                                            <dl class="small m-b-none">
+                                                <dt>Product Tag</dt>
+                                                <dd>{{menu.tag}}</dd>
+                                            </dl>
+                                            <!-- remove item button -->
+                                            <div class="m-t-sm">
+
+                                                <a (click)="deleteById(menu.foodId)"class="text-muted"><i class="fa fa-trash"></i> Remove
+                                                    item</a>
+                                            </div>
+                                        </td>
+                                        <!-- cost of the product  -->
+                                        <td>
+                                            ₹{{menu.price}}
+                                            
+                                        </td>
+                                        <!-- quantity of the product  -->
+                                        <td width="100">
+                                            <input id="quantity" type="number" value="1" class="form-control" #quantity min="1">
+                                        </td>
+                                        <!-- total price of the product  -->
+                                        <td>
+                                            <h4>
+                                                ₹{{menu.price}}
+                                            </h4>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- continue shopping and chekout button in the last  -->
+                    <div class="ibox-content">
+                        
+                        <button (click)="deleteAll()" class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i>
+                            clear cart</button>
+                        <button routerLink="/menu" routerLinkActive="active" class="btn btn-white"><i  class="fa fa-arrow-left"></i> Continue shopping</button>
+
+                    </div>
+                </div>
+               
+            </div>
+             <!-- cart summary box -->
+            <div class="col-md-3">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Cart Summary</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <!-- total amount in the cart -->
+                        <span>
+                            Total
+                        </span>
+                        <h2 class="font-bold">
+                            ₹{{totalPriceOfProduct}}
+                        </h2>
+
+                        <hr>
+                        <span class="text-muted small">
+                            *	
+                            Superfast Delivery
+                            Get your order delivered to your doorstep at the earliest from best hotels near you.
+                        </span>
+                        <div class="m-t-sm">
+                            <div class="btn-group">
+                                <a href="#" *ngIf=" !loggedIn()" class="btn btn-primary btn-sm mt-3"><i class="fa fa-shopping-cart m-1 mb-2 mt-2"></i>
+                                   Login to proceed </a>
+                                <a href="#"*ngIf=" loggedIn()" class="btn btn-primary btn-sm mt-3"><i class="fa fa-shopping-cart m-1 mb-2 mt-2"></i>
+                                    Checkout</a>
+                                <a href="#" class="btn btn-white btn-sm mt-3 ml-2"> Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

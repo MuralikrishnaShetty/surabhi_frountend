@@ -1,0 +1,91 @@
+nav.navbar-brand{
+    margin-left: 20px;
+    margin-top: 0px;
+}
+.navbar {
+    box-shadow: 0 0 6px;
+}
+
+.searchbar {
+    /* border-radius: 15px; */
+    border-width: 0px;
+    border-color: gray;
+    /* border-top-right-radius: 10px; */
+    outline: none; 
+}
+
+.searchButtonBox {
+    display: inline-block;
+}
+.searchComponent{
+    border: 0px ;
+    border-radius: 20px;
+    padding: 6px;
+    box-shadow: 0 0 2.5px;
+    margin-right: 110px;
+}
+.searchComponent:hover{
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
+}
+
+#logo{
+    background-image: url('../../assets/img/logo.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 45px;
+    width: 110px;
+}
+.meadia{
+    margin-top: 0px;
+}
+
+/* Styles for each dot in the icon */
+
+
+
+
+/* Styles for each item in the dropdown */
+
+@media screen and (max-width: 500px){
+    
+    .meadia {
+        display: block;
+        margin-right: 200px;
+        margin-left: 150px;
+       
+    }
+    .searchComponent{
+        display: block;
+        margin-right: 50px;
+        margin-left: 120px;
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+    .box{
+        display: block;
+        margin-left: 180px;
+    }
+    
+    
+}
+@media screen and  (max-width: 428px) {
+    .meadia {
+        display: block;
+        margin-right: 120px;
+        margin-left: 130px;
+       
+    }
+    .searchComponent{
+        display: block;
+        margin-right: 50px;
+        margin-left: 100px;
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+    .box{
+        display: block;
+        margin-left: 160px;
+    }
+    
+}
+

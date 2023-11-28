@@ -1,0 +1,16 @@
+.image{
+    margin-top: 3.75rem;
+    margin-left: 26.25rem;
+}
+.img{
+    margin-left: 5.313rem;
+}
+h6{
+    margin-left: 3.438rem;
+}
+.card-btn {
+    background-color: green ;
+    border-radius: 20px;
+    color: white !important;
+    margin-left: 135px;
+  }

@@ -1,0 +1,34 @@
+<app-usernavbar></app-usernavbar>
+<div class="meadia">
+    
+        <div class="d-inline-block align-top" id="logo"></div>
+    
+</div>
+<div class="boxforform">
+    
+    
+    <form>
+        
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <input type="email" id="form2Example1" class="form-control" [(ngModel)]="loginClass.email" name="email"/>
+            <label class="form-label" for="form2Example1">Email address</label>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <input type="password" id="form2Example2" class="form-control" [(ngModel)]="loginClass.password" name="password" />
+            <label class="form-label" for="form2Example2">Password</label>
+        </div>
+
+
+
+        <!-- Submit button -->
+        <button type="button" class="btn btn-primary btn-block mb-4"(click)="loginUser(loginClass)">Sign in</button>
+
+        <!-- Register buttons -->
+        <div class="text-center">
+            <p>Not a member? <a routerLink="/register" routerLinkActive="active" >Register</a></p>
+        </div>
+    </form>
+</div>

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../classes/user';
 import { Menu } from '../classes/menu';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,11 @@ export class ChangeUserService {
     return this.http.get<Menu[]>(getAllMenuUrl);
 
   }
+  // search food by name 
+  findByName(name:string){
+    const findByNameUrl=`${this.menuUrl}/${name}`;
+    return this.http.get<Menu[]>(findByNameUrl);
+  }
   //deleting menu from the database used in the menu list component
   deletemenu(id:number){
     const deleteMenuUrl=`${this.menuUrl}/delete/${id}`;
@@ -55,5 +61,40 @@ export class ChangeUserService {
     return this.http.put(updateUrl, updatedData);
 
   }
+  //login user used in the userlogin
+  login(userdata:any){
+    const loginurl=`${this.apiUrl}/login`;
+    return this.http.post(loginurl,userdata);
+  }
+  //check wether the user is loged in or not 
+  loggedIn() {
+    return !!localStorage.getItem('userName') ;   
+  }
+  //get the tocken stored in localstorage 
+  getToken() {
+    return localStorage.getItem('userName');
+  }
+  //cheking is the admin or not to implement authgard separate for admin and user 
+  isAdmin(): boolean {
+    const isAdminValue = localStorage.getItem('isAdmin');
+    
+    if (isAdminValue === 'true') {
+      console.log("This is the response from the service: true");
+      return true;
+    } else {
+      console.log("This is the response from the service: false");
+      return false;
+    }
+  }
+  // shared services are made below to make a search feacher work in other component 
+  private searchResult =new BehaviorSubject<any[]>([]);
+  setSearchResults(result:any[]):void{
+    this.searchResult.next(result);
+  }
+  getsearchresult():BehaviorSubject<any[]>{
+    return this.searchResult;
+  }
+  
+
 
 }

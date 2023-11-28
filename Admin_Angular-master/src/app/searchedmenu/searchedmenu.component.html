@@ -1,0 +1,24 @@
+<app-usernavbar (addfoodName)="additem($event)" ></app-usernavbar> 
+
+
+  <!--mensu cards for showing the menu in the page   -->
+  <button (click)="findByName()"></button>
+  <div class="row">
+      <!-- col-md-4 mb-4  -->
+      <div *ngFor="let menu of menus" class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card mb-3" style="max-width: 18rem;">
+          <img class="card-img-top" src="{{menu.image}}" alt="Card image cap" style="max-height: 150px; object-fit: cover;">
+          <div class="card-body">
+            <h4 class="card-title">{{menu.name}}</h4>
+            <h5 class="card-title">₹{{menu.price}}</h5>
+            <h6 class="card-title">{{menu.tag}}</h6>
+            <div class="d-flex justify-content-between">
+              <a class="btn card-btn">Add item</a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  

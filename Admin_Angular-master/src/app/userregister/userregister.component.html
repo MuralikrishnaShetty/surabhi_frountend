@@ -1,0 +1,60 @@
+<app-usernavbar></app-usernavbar>
+<div class="meadia">
+    
+    <div class="d-inline-block align-top" id="logo"></div>
+
+</div>
+<div class="boxforform">
+    <form [formGroup]="userForm" (ngSubmit)="addUser()">
+        <!-- First Name -->
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input type="text" formControlName="firstName" class="form-control" />
+          <div class="validation-messages">
+            <small class="text-danger" *ngIf="isTouched('firstName') && userForm.get('firstName')?.hasError('required')">* First Name is required</small>
+            <small class="text-danger" *ngIf="isTouched('firstName') && userForm.get('firstName')?.hasError('minlength')">* First Name must be at least 2 characters</small>
+            <small class="text-danger" *ngIf="isTouched('firstName') && userForm.get('firstName')?.hasError('maxlength')">* First Name cannot exceed 30 characters</small>
+            <small class="text-danger" *ngIf="isTouched('firstName') && userForm.get('firstName')?.hasError('pattern')">* Only letters and spaces are allowed</small>
+          </div>
+        </div>
+      
+        <!-- Last Name -->
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input type="text" formControlName="lastName" class="form-control" />
+          <div class="validation-messages">
+            <small class="text-danger" *ngIf="isTouched('lastName') && userForm.get('lastName')?.hasError('required')">* Last Name is required</small>
+            <small class="text-danger" *ngIf="isTouched('lastName') && userForm.get('lastName')?.hasError('minlength')">* Last Name must be at least 2 characters</small>
+            <small class="text-danger" *ngIf="isTouched('lastName') && userForm.get('lastName')?.hasError('maxlength')">* Last Name cannot exceed 30 characters</small>
+            <small class="text-danger" *ngIf="isTouched('lastName') && userForm.get('lastName')?.hasError('pattern')">* Only letters and spaces are allowed</small>
+          </div>
+        </div>
+      
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" formControlName="email" class="form-control" />
+          <div class="validation-messages">
+            <small class="text-danger" *ngIf="isTouched('email') && userForm.get('email')?.hasError('required')">* Email is required</small>
+            <small class="text-danger" *ngIf="isTouched('email') && userForm.get('email')?.hasError('pattern')">* Please enter a valid email address</small>
+          </div>
+        </div>
+      
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" formControlName="password" class="form-control" />
+          <div class="validation-messages">
+            <small class="text-danger" *ngIf="isTouched('password') && userForm.get('password')?.hasError('required')">* Password is required</small>
+            <small class="text-danger" *ngIf="isTouched('password') && userForm.get('password')?.hasError('pattern')">* password need to be minimum 8 charecter long with atleast 1 caps and number</small>
+          </div>
+        </div>
+      
+        <button type="submit" [disabled]="!userForm.valid"  class="btn btn-primary">Submit</button>
+        <div class="text-center mt-3">
+            <p>Alredy have account ? <a routerLink="/login" routerLinkActive="active" router>Login</a></p>
+        </div>
+      </form>
+      
+      
+</div>

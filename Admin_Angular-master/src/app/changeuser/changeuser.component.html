@@ -11,7 +11,8 @@
           <strong>ID:</strong>{{user.id}}<br>
           <strong>Email:</strong>{{user.email}}<br>
           <strong>Name:</strong>{{user.firstName}}<br>
-          <strong>LastName:</strong>{{user.lastName}}
+          <strong>LastName:</strong>{{user.lastName}}<br>
+          <strong>Admin:</strong>{{user.admin}}
         </div>
         <div class="btn-group" role="group">
           <button type="button" class="btn btn-warning btn-sm" (click)="getUserId(user.id)" routerLink="/edituser" routerLinkActive="active">Edit</button>

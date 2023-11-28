@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AdduserComponent {
   //calling object of the user
-  user:User = new User(0,"","","","",false);
+  user:User = new User(0,"","","","",true);
 
   constructor(private changeUser:ChangeUserService, private router:Router){}
 
