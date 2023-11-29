@@ -4,6 +4,7 @@ import { ChangeUserService } from '../services/change-user.service';
 import { Router } from '@angular/router';
 import { UsernavbarComponent } from '../usernavbar/usernavbar.component';
 import { HttpClient } from '@angular/common/http';
+import { Cartmenu } from '../classes/cartmenu';
 
 
 
@@ -55,6 +56,7 @@ searchedFood(value:Menu[]){
   
 
   menus:Menu[]=[];
+ 
   
   
   
@@ -88,19 +90,22 @@ searchedFood(value:Menu[]){
     // converted string to object from the local storage if exist or else will create an empty array 
     let existedObject=JSON.parse(localStorage.getItem('cart')??'[]');
    
-    
+    let cartmenu:Cartmenu=new Cartmenu(menu. foodId,menu.name,menu.price,menu.image,menu.tag,1);
+      
+      
+      
     // will push the menu object when clicked on the addcart button 
     
     let i:number=0;
     let flag=false;
     if(existedObject.length===0){
       console.log("empty");
-      existedObject.push(menu);
+      existedObject.push(cartmenu);
       localStorage.setItem('cart',JSON.stringify(existedObject));
     }
     else{
       for(let existedObjects of existedObject){
-        if(existedObjects.foodId===menu.foodId){
+        if(existedObjects.foodId===cartmenu.foodId){
          flag=true;
           break;
         }
@@ -108,7 +113,7 @@ searchedFood(value:Menu[]){
       console.log("is existed:"+flag);
       
       if(!flag){
-        existedObject.push(menu);
+        existedObject.push(cartmenu);
         localStorage.setItem('cart',JSON.stringify(existedObject));
         console.log("added to cart")
       }else{

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { Menu } from '../classes/menu';
 import { NgZone } from '@angular/core';
+import { Cartmenu } from '../classes/cartmenu';
 
 
 @Component({
@@ -16,6 +17,16 @@ export class UsercartComponent {
     this.calculateTotalPrice();
 
   }
+
+  quantityChange(id:number,quant:number){
+    let existedObject = JSON.parse(localStorage.getItem('cart') ?? '[]');
+    let IndexToChange = existedObject.findIndex((obj: { foodId: number }) => obj.foodId === id);
+    let objectToChange = existedObject[IndexToChange];
+    objectToChange.quantity=quant;
+    existedObject[IndexToChange]=objectToChange; 
+    localStorage.setItem('cart', JSON.stringify(existedObject));
+    location.reload();
+  }
   quantity=1;
 
   loggedIn() {
@@ -24,13 +35,14 @@ export class UsercartComponent {
 
   //  to store menu object 
   menus: Menu[] = [];
+  cartmenus:Cartmenu[]=[];
   //  geting length of the cart
   lengthOfTheCart = 0
   totalPriceOfProduct: number = 0
 
   calculateTotalPrice() {
-    for (let menu of this.menus) {
-      this.totalPriceOfProduct = this.totalPriceOfProduct + menu.price;
+    for (let menu of this.cartmenus) {
+      this.totalPriceOfProduct = this.totalPriceOfProduct + (menu.quantity*menu.price);
     }
   }
   deleteAll() {
@@ -62,8 +74,9 @@ export class UsercartComponent {
   getcart() {
     // getting all the cart values that stored in the localstorge
     let existedObject = JSON.parse(localStorage.getItem('cart') ?? '[]');
-    this.menus = existedObject;
-    this.lengthOfTheCart = this.menus.length;
+    this.cartmenus = existedObject;
+    this.lengthOfTheCart = this.cartmenus.length;
+    
 
   }
   isempty():boolean{

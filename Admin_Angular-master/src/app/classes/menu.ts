@@ -1,6 +1,6 @@
 export class Menu {
     foodId:number;
-    name:String;
+    name:string;
     price:number;
     image:string;
     tag:string;

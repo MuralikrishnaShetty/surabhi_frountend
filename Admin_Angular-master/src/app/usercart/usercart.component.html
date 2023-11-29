@@ -11,7 +11,7 @@
                         <h5>Items in your cart</h5>
                     </div>
                     <!-- items in the cart -->
-                    <div *ngFor="let menu of menus"class="ibox-content">
+                    <div *ngFor="let menu of cartmenus"class="ibox-content">
                         <div class="table-responsive">
                             <table class="table shoping-cart-table">
                                 <tbody>
@@ -48,12 +48,15 @@
                                         </td>
                                         <!-- quantity of the product  -->
                                         <td width="100">
-                                            <input id="quantity" type="number" value="1" class="form-control" #quantity min="1">
+                                            <div (click)="quantityChange(menu.foodId,menu.quantity)">
+                                            <input id="quantity" type="number" [(ngModel)]="menu.quantity" value="{{menu.quantity}}" class="form-control" #quantity min="1">
+                                            <!-- <input type="number" id="tentacles" value="1" name="tentacles" min="10" max="100" /> -->
+                                        </div>
                                         </td>
                                         <!-- total price of the product  -->
                                         <td>
                                             <h4>
-                                                ₹{{menu.price}}
+                                                ₹{{menu.quantity*menu.price}}
                                             </h4>
                                         </td>
                                     </tr>
