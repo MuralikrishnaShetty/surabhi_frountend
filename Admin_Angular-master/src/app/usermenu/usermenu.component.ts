@@ -90,7 +90,7 @@ searchedFood(value:Menu[]){
     // converted string to object from the local storage if exist or else will create an empty array 
     let existedObject=JSON.parse(localStorage.getItem('cart')??'[]');
    
-    let cartmenu:Cartmenu=new Cartmenu(menu. foodId,menu.name,menu.price,menu.image,menu.tag,1);
+    let cartmenu:Cartmenu=new Cartmenu(0,menu. foodId,menu.name,menu.price,menu.image,menu.tag,1);
       
       
       

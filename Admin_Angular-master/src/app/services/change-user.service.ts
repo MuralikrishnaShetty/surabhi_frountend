@@ -86,14 +86,10 @@ export class ChangeUserService {
       return false;
     }
   }
-  // shared services are made below to make a search feacher work in other component 
-  private searchResult =new BehaviorSubject<any[]>([]);
-  setSearchResults(result:any[]):void{
-    this.searchResult.next(result);
-  }
-  getsearchresult():BehaviorSubject<any[]>{
-    return this.searchResult;
-  }
+  
+  //sending order to the backend 
+  
+
   
 
 

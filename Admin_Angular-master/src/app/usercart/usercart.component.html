@@ -92,15 +92,13 @@
 
                         <hr>
                         <span class="text-muted small">
-                            *	
-                            Superfast Delivery
-                            Get your order delivered to your doorstep at the earliest from best hotels near you.
+                            *   Your order is just one click away 
                         </span>
                         <div class="m-t-sm">
                             <div class="btn-group">
-                                <a href="#" *ngIf=" !loggedIn()" class="btn btn-primary btn-sm mt-3"><i class="fa fa-shopping-cart m-1 mb-2 mt-2"></i>
+                                <a routerLink="/login" routerLinkActive="active" *ngIf=" !loggedIn()" class="btn btn-primary btn-sm mt-3"><i class="fa fa-shopping-cart m-1 mb-2 mt-2"></i>
                                    Login to proceed </a>
-                                <a href="#"*ngIf=" loggedIn()" class="btn btn-primary btn-sm mt-3"><i class="fa fa-shopping-cart m-1 mb-2 mt-2"></i>
+                                <a routerLink="/invoice" routerLinkActive="active"(click)="orderPlaced()"*ngIf=" loggedIn()" class="btn btn-primary btn-sm mt-3"><i class="fa fa-shopping-cart m-1 mb-2 mt-2"></i>
                                     Checkout</a>
                                 <a href="#" class="btn btn-white btn-sm mt-3 ml-2"> Cancel</a>
                             </div>

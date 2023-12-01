@@ -1,0 +1,64 @@
+<app-usernavbar></app-usernavbar>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 body-main">
+                <div class="col-md-12">
+                   <div class="row">
+                        <div class="col-md-4">
+                            <img class="img" alt="Invoce Template" src="../../assets/img/logo.png" />
+                        </div>
+                        <div class="col-md-8 text-right">
+                            <h4 style="color: #158d0c;"><strong>SURABHI RESTAURANTS</strong></h4>
+                            <p style="margin: 0;">4th main road  ,Bagaluru cross</p>
+                            <p style="margin: 0;">1800-234-124</p>
+                            <p>help@surabhirestaurants.com</p>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2>INVOICE</h2>
+                            <h5>{{userName}}</h5>
+                        </div>
+                    </div>
+                    <br />
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><h5>Description</h5></th>
+                                    <!-- <th><h5>Quantity</h5></th> -->
+                                    <th><h5>Amount(₹)</h5></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let invoice of invoices">
+                                    <td class="col-md-9">{{invoice.name}}</td>
+                                    <!-- <td class="col-md-9">{{invoice.name}}</td> -->
+                                    <td class="col-md-3"><i class="fas fa-rupee-sign" area-hidden="true"></i> {{invoice.quantity}} X {{invoice.price}} </td>
+                                </tr>
+                               
+                                
+                               
+                               
+                                <tr style="color: #F81D2D;">
+                                    <td class="text-right"><h4><strong>Total:</strong></h4></td>
+                                    <td class="text-left"><h4><strong><i class="fas fa-rupee-sign" area-hidden="true"></i>₹ {{totalPrice}}</strong></h4></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <div class="col-md-12">
+                            <p><b>Date :</b> {{currentDate | date:'yyyy-MM-dd'}}</p>
+                            <br />
+                            <button class="btn " routerLink="/menu" routerLinkActive="active">Shop more</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    

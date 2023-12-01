@@ -15,10 +15,12 @@ export class UsercartComponent {
   ngOnInit(): void {
     this.getcart();
     this.calculateTotalPrice();
+    
 
   }
 
   quantityChange(id:number,quant:number){
+    
     let existedObject = JSON.parse(localStorage.getItem('cart') ?? '[]');
     let IndexToChange = existedObject.findIndex((obj: { foodId: number }) => obj.foodId === id);
     let objectToChange = existedObject[IndexToChange];
@@ -86,6 +88,11 @@ export class UsercartComponent {
     }else{
       return false;
     }
+  }
+  orderPlaced(){
+    alert("order placed");
+    let existedObject=JSON.parse(localStorage.getItem('cart')??'[]');
+
   }
 
 
