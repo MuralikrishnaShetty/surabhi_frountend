@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/
 import { Menu } from '../classes/menu';
 import { NgZone } from '@angular/core';
 import { Cartmenu } from '../classes/cartmenu';
+import { Orders } from '../classes/orders';
+import { ChangeUserService } from '../services/change-user.service';
 
 
 @Component({
@@ -11,10 +13,12 @@ import { Cartmenu } from '../classes/cartmenu';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UsercartComponent {
-  constructor(private ngZone: NgZone, private crf: ChangeDetectorRef) { }
+  constructor(private ngZone: NgZone, private crf: ChangeDetectorRef,private service:ChangeUserService) { }
   ngOnInit(): void {
     this.getcart();
     this.calculateTotalPrice();
+    
+    
     
 
   }
@@ -89,11 +93,52 @@ export class UsercartComponent {
       return false;
     }
   }
+  order:Orders[]=[];
+
+   
+   
+ 
+  
   orderPlaced(){
-    alert("order placed");
-    let existedObject=JSON.parse(localStorage.getItem('cart')??'[]');
+   
+    
+    let cart=JSON.parse(localStorage.getItem('cart')??'[]');
+    
+    this.order=cart;
+    let username=localStorage.getItem('userName');
+    for(let n of this.order){
+      if(username!==null){
+        n.username=username;
+      }
+     
+    }
+   
+   
+    
+    console.log(this.order);
+    
+    
+    
+    
+    // console.log(username);
+    this.service.postOrder(this.order).subscribe(
+      (res)=>{
+        console.log(res);
+        console.log(cart)
+        alert("order placed");
+      },
+      (err)=>{
+        console.log(err);
+
+      }
+
+    )
+    
 
   }
+  
+  
+
 
 
 

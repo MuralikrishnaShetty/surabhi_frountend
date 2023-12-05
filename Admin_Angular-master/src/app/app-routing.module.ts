@@ -16,6 +16,7 @@ import { AdminAuthGuard } from './adminauth.guard';
 import { SearchedmenuComponent } from './searchedmenu/searchedmenu.component';
 import { UsercartComponent } from './usercart/usercart.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { AdminordersComponent } from './adminorders/adminorders.component';
 
 const routes: Routes = [
 
@@ -90,6 +91,11 @@ const routes: Routes = [
     path:'invoice',
     component:InvoiceComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path:'orders',
+    component:AdminordersComponent,
+    canActivate: [AdminAuthGuard]
   }
 
 ];

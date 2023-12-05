@@ -3,11 +3,15 @@ import { Injectable } from '@angular/core';
 import { User } from '../classes/user';
 import { Menu } from '../classes/menu';
 import { BehaviorSubject } from 'rxjs';
+import { Orders } from '../classes/orders';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChangeUserService {
+  // url for order
+  private orderUrl="http://localhost:9091/order"
+
   //host for the menu
   private menuUrl="http://localhost:9091/menu";
   //host for the user
@@ -38,7 +42,6 @@ export class ChangeUserService {
   getAllMenu(){
     const getAllMenuUrl=`${this.menuUrl}/menus`;
     return this.http.get<Menu[]>(getAllMenuUrl);
-
   }
   // search food by name 
   findByName(name:string){
@@ -87,7 +90,19 @@ export class ChangeUserService {
     }
   }
   
-  //sending order to the backend 
+  //geting all order 
+  getAllOrders(){
+    const getAllOrderUrl=`${this.orderUrl}/orders`;
+    return this.http.get<Orders[]>(getAllOrderUrl);
+
+  }
+  // posting orders
+  postOrder(data:any[]){
+    const postOrderUrl=`${this.orderUrl}/add`;
+    return this.http.post(postOrderUrl,data);
+  }
+
+ 
   
 
   

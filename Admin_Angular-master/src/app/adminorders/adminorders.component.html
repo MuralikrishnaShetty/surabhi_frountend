@@ -1,0 +1,26 @@
+<app-admindashboard></app-admindashboard>
+<div id="content">
+<h2 class="heading ">Orders</h2>
+<div class="container">
+    <ul class="list-group">
+      <!-- Example user item, repeat this for each user -->
+      <!-- Repeat the above li block for each user -->
+       <!-- Example user item, repeat this for each user -->
+       <li *ngFor="let order of orders" class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>ID:</strong>{{order.orderId}}<br>
+          <strong>Product:</strong>{{order.name}}<br>
+          <strong>Price:</strong> ₹{{order.price}}<br>
+          <strong>Quantity:</strong>{{order.quantity}}<br>
+          <strong>tag:</strong>{{order.tag}}<br>
+          <strong>User name :</strong>{{order.username}}
+        </div>
+        <div class="btn-group" role="group">
+            <img src="{{order.image}}" alt="product image " width="100px" height="100px">
+         
+        </div>
+      </li>
+      <!-- Repeat the above li block for each user -->
+    </ul>
+  </div>
+  </div>

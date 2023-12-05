@@ -20,6 +20,7 @@ import { SearchedmenuComponent } from './searchedmenu/searchedmenu.component';
 import { UsercartComponent } from './usercart/usercart.component';
 import { EmptycartComponent } from './emptycart/emptycart.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { AdminordersComponent } from './adminorders/adminorders.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { InvoiceComponent } from './invoice/invoice.component';
     SearchedmenuComponent,
     UsercartComponent,
     EmptycartComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    AdminordersComponent
   ],
   imports: [
     BrowserModule,
